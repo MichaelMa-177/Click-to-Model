@@ -15,4 +15,5 @@ This project builds upon the following open-source works:
 - FoundationPose (CVPR 2024)
 - Segment Anything (ICCV 2023)
 - SAM3D
+
 We thank the authors for their excellent contributions.
