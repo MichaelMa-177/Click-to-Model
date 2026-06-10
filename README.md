@@ -1,7 +1,7 @@
 # Click-to-Model
 
-端到端"点一下即得三维模型 + 6D 位姿"流水线：
-**RealSense 采集 → SAM 交互分割 → SAM-3D 重建带纹理 mesh → FoundationPose 输出每帧 6D 位姿**。
+端到端"点一下即得目标物体的6D 位姿"pipeline：
+**RealSense 采集 → SAM 交互分割 → SAM-3D 重建带纹理 mesh → 基于形状颜色感知的尺度配准 → ICP + FoundationPose 联合追踪机制输出每帧 6D 位姿**。
 
 ---
 
