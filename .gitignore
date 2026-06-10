@@ -1,0 +1,84 @@
+# ============================================================
+# Click-to-Model .gitignore
+# 仓库只跟踪入口脚本 + 配置 + 部署脚本，所有重型资产由 setup.sh 拉取
+# ============================================================
+
+# ----- 子项目（由 scripts/clone_upstream.sh 自动 clone）-----
+/sam-3d-objects/
+/FoundationPose/
+/segment-anything/
+/dinov2/
+/nvdiffrast/
+
+# ----- 数据集（用户本地准备，不入库）-----
+/data_online
+/data_online/
+/dataset/
+
+# ----- 模型权重 -----
+*.pth
+*.ckpt
+*.pt
+*.bin
+*.safetensors
+*.onnx
+*.h5
+
+# ----- 大型压缩/安装包 -----
+*.tar.gz
+*.tgz
+*.zip
+*.deb
+*.rpm
+*.msi
+*.exe
+Miniforge3*.sh
+cuda-repo-*
+
+# ----- 3D / 渲染产物 -----
+*.ply
+*.glb
+*.gltf
+*.obj
+*.mtl
+*_texture.png
+
+# ----- Python 缓存 / 编译 -----
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+*.o
+*.a
+*.egg-info/
+*.egg-link
+*.dist-info/
+build/
+dist/
+.eggs/
+
+# ----- IDE / OS -----
+.vscode/
+.idea/
+.DS_Store
+__MACOSX/
+Thumbs.db
+*.swp
+*~
+
+# ----- 运行时输出 -----
+output/
+outputs/
+results/
+debug/
+logs/
+*.log
+
+# ----- Jupyter -----
+.ipynb_checkpoints/
+*.ipynb
+
+# ----- env 临时 -----
+.env
+.envrc
