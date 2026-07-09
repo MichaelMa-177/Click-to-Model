@@ -1,0 +1,9 @@
+[submodule "FoundationPose"]
+	path = FoundationPose
+	url = https://github.com/MichaelMa-177/FoundationPose.git
+[submodule "segment-anything"]
+	path = segment-anything
+	url = https://github.com/MichaelMa-177/segment-anything.git
+[submodule "sam-3d-objects"]
+	path = sam-3d-objects
+	url = https://github.com/MichaelMa-177/sam-3d-objects.git

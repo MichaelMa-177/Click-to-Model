@@ -4,9 +4,7 @@
 # ============================================================
 
 # ----- 子项目（由 scripts/clone_upstream.sh 自动 clone）-----
-/sam-3d-objects/
-/FoundationPose/
-/segment-anything/
+# sam-3d-objects, FoundationPose, segment-anything are git submodules
 /dinov2/
 /nvdiffrast/
 
