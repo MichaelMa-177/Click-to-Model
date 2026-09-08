@@ -13,7 +13,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 echo "==================================================="
 echo " Click-to-Model 部署"
@@ -42,5 +42,5 @@ else
 fi
 
 echo "[4/4] 完成。运行示例:"
-echo "  /data/ubuntu_data/miniconda3/envs/sam3d-objects/bin/python \\"
-echo "      $REPO_DIR/demo_from_notebook.py"
+echo "  cd $REPO_DIR && source scripts/activate_click_to_model.sh"
+echo "  python -m click_to_model --help"

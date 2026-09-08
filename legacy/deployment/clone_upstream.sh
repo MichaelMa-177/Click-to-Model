@@ -4,7 +4,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 cd "$REPO_DIR"
 
 clone_if_missing() {
@@ -33,8 +33,8 @@ clone_if_missing sam-3d-objects/pytorch3d https://github.com/facebookresearch/py
 
 # ----- 用 patches/ 覆盖入口脚本（含 ICP 对齐 / argparse 适配）-----
 echo "  [patch] 覆盖 sam-3d-objects/run_sam3d.py"
-cp "$REPO_DIR/patches/run_sam3d.py" "$REPO_DIR/sam-3d-objects/run_sam3d.py"
+cp "$REPO_DIR/legacy/patches/run_sam3d.py" "$REPO_DIR/sam-3d-objects/run_sam3d.py"
 echo "  [patch] 覆盖 FoundationPose/run_fp.py"
-cp "$REPO_DIR/patches/run_fp.py" "$REPO_DIR/FoundationPose/run_fp.py"
+cp "$REPO_DIR/legacy/patches/run_fp.py" "$REPO_DIR/FoundationPose/run_fp.py"
 
 echo "上游 clone + 补丁覆盖完成"

@@ -4,20 +4,21 @@ set -e
 # =========================
 # 基础路径
 # =========================
-SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LEGACY_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_DIR="$(cd "${LEGACY_DIR}/.." && pwd)"
 
-SAM_DIR="${SCRIPT_DIR}/sam-3d-objects"
-FP_DIR="${SCRIPT_DIR}/FoundationPose"
+SAM_DIR="${REPO_DIR}/sam-3d-objects"
+FP_DIR="${REPO_DIR}/FoundationPose"
 
-# Python 解释器：默认使用本机 conda env，可被环境变量覆盖
-SAM_PY="${SAM_PY:-/data/ubuntu_data/miniconda3/envs/sam3d-objects/bin/python}"
-FP_PY="${FP_PY:-/data/ubuntu_data/miniconda3/envs/foundationpose/bin/python}"
+# Python 解释器：默认使用当前环境，可被环境变量覆盖
+SAM_PY="${SAM_PY:-python}"
+FP_PY="${FP_PY:-python}"
 
 # =========================
 # 自动查找最大编号数据目录
 # 默认 ${SCRIPT_DIR}/data_online，可被 DATA_ROOT 环境变量覆盖
 # =========================
-DATA_ROOT="${DATA_ROOT:-${SCRIPT_DIR}/data_online}"
+DATA_ROOT="${DATA_ROOT:-${REPO_DIR}/data_online}"
 
 # -L 让 find 跟随软链接（DATA_ROOT 可能是软链）
 LATEST_ID=$(find -L "$DATA_ROOT" -mindepth 1 -maxdepth 1 -type d -printf "%f\n" \

@@ -1,19 +1,18 @@
-# ============================================================
-# Click-to-Model .gitignore
-# 仓库只跟踪入口脚本 + 配置 + 部署脚本，所有重型资产由 setup.sh 拉取
-# ============================================================
-
-# ----- 子项目（由 scripts/clone_upstream.sh 自动 clone）-----
-# sam-3d-objects, FoundationPose, segment-anything are git submodules
+# Local third-party checkouts not managed as Git submodules
 /dinov2/
 /nvdiffrast/
 
-# ----- 数据集（用户本地准备，不入库）-----
-/data_online
+# Captured datasets and runtime outputs
 /data_online/
 /dataset/
+/output/
+/outputs/
+/results/
+/debug/
+/logs/
+*.log
 
-# ----- 模型权重 -----
+# Model weights and downloaded archives
 *.pth
 *.ckpt
 *.pt
@@ -21,8 +20,6 @@
 *.safetensors
 *.onnx
 *.h5
-
-# ----- 大型压缩/安装包 -----
 *.tar.gz
 *.tgz
 *.zip
@@ -33,7 +30,7 @@
 Miniforge3*.sh
 cuda-repo-*
 
-# ----- 3D / 渲染产物 -----
+# Generated 3D assets
 *.ply
 *.glb
 *.gltf
@@ -41,11 +38,9 @@ cuda-repo-*
 *.mtl
 *_texture.png
 
-# ----- Python 缓存 / 编译 -----
+# Python build, test, and analysis caches
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
+*.py[cod]
 *.so
 *.o
 *.a
@@ -55,8 +50,16 @@ __pycache__/
 build/
 dist/
 .eggs/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
 
-# ----- IDE / OS -----
+# Environments, IDEs, and operating-system files
+.env
+.envrc
+.venv/
 .vscode/
 .idea/
 .DS_Store
@@ -65,18 +68,5 @@ Thumbs.db
 *.swp
 *~
 
-# ----- 运行时输出 -----
-output/
-outputs/
-results/
-debug/
-logs/
-*.log
-
-# ----- Jupyter -----
+# Notebook checkpoints (not notebooks themselves)
 .ipynb_checkpoints/
-*.ipynb
-
-# ----- env 临时 -----
-.env
-.envrc

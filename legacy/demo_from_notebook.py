@@ -30,15 +30,13 @@ import numpy as np
 # =========================================================
 # 路径与默认配置
 # =========================================================
-SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SAM_REPO_DIR = os.path.join(SCRIPT_DIR, "segment-anything")
 SAM3D_DIR = os.path.join(SCRIPT_DIR, "sam-3d-objects")
 FP_DIR = os.path.join(SCRIPT_DIR, "FoundationPose")
 
-SAM3D_PY = os.environ.get("SAM_PY") or \
-    "/data/ubuntu_data/miniconda3/envs/sam3d-objects/bin/python"
-FP_PY = os.environ.get("FP_PY") or \
-    "/data/ubuntu_data/miniconda3/envs/foundationpose/bin/python"
+SAM3D_PY = os.environ.get("SAM_PY") or sys.executable
+FP_PY = os.environ.get("FP_PY") or sys.executable
 SAM_CKPT = os.environ.get("SAM_CHECKPOINT") or os.path.join(
     SAM_REPO_DIR, "checkpoints", "sam_vit_h_4b8939.pth")
 

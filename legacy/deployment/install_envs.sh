@@ -4,7 +4,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 if ! command -v conda >/dev/null 2>&1; then
   echo "❌ 找不到 conda。先安装 Miniforge / Miniconda 并 source 它的初始化脚本。"
@@ -25,8 +25,8 @@ create_env() {
   fi
 }
 
-create_env sam3d-objects "$REPO_DIR/environments/sam3d-objects.yml"
-create_env foundationpose "$REPO_DIR/environments/foundationpose.yml"
+create_env sam3d-objects "$REPO_DIR/legacy/environments/sam3d-objects.yml"
+create_env foundationpose "$REPO_DIR/legacy/environments/foundationpose.yml"
 
 # pytorch3d 用源码 develop install (sam3d-objects env)
 echo "  [build] pytorch3d (sam-3d-objects/pytorch3d, develop install)"
